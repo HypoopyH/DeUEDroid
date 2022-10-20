@@ -5,7 +5,7 @@ Nowadays, apps that serve the underground economy are prevalent nowadays.
 Unlike legitimate apps (e.g., pornhub in the US), these apps serve the underground economy by providing illegal sensitive services (e.g., gambling scam, prostitution, Ponzi scheme, usury).  We call them underground economy apps, or *UEware* for short. However, traditional malicious detection
 methods cannot effectively address this emerging threat.
 
-To address this problem, we propose a novel approach to effectively and efficiently detect UEware by considering their UI transition graphs (UTG). Based on the proposed approach, we design and implement a system, named DeUEDroid, to perform the detection. To evaluate DeUEDroid, we collect 26, 591 apps to evaluate DeUEDroid and build up the first large-scale ground-truth UEware dataset (1, 720 underground economy apps and 831 legitimate apps)
+To address this problem, we propose a novel approach to effectively and efficiently detect UEware by considering their UI transition graphs (UTG). Based on the proposed approach, we design and implement a system, named DeUEDroid, to perform the detection. To evaluate DeUEDroid, we collect 26, 125 apps to evaluate DeUEDroid and build up the first large-scale ground-truth UEware dataset (1, 267 underground economy apps and 831 legitimate apps)
 
 ## Motivation Example
 To perform an effective large-scale detection, we propose a UEware detection approach based on the UTG. Our approach is based on two key observations:
@@ -59,20 +59,19 @@ Based on the proposed approach, we design a system named DeUEDroid to detect the
 builds UTG for the training APKs, and then extracts features of
 UTG. After that, it applies a machine learning method (i.e., self-
 supervised representation learning) to train the classifier to detect
-UEware. Figure 3 shows the architecture of DeUEDroid. There are
+UEware. Figure-Overview shows the architecture of DeUEDroid. There are
 three modules, i.e., UTG Builder, UTG Feature Extractor and UEware
 Detector, as follows:
 
 1. **UTG Builder.** This module accepts Android APK files as the
 input, and outputs the UTGs. It consists of two phases: GUI widget
 identification and UI transition determination. 
-2. **UTG Feature Extractor.** Based on the UTGs, this module com-
-bines both GUI attributes and UTG topology together and out-
-puts the UTG representation. Specifically, it leverages the MaskGAE with a 2-layer GCN  to embed
+2. **UTG Feature Extractor.** Based on the UTGs, this module combines both GUI attributes and UTG topology together and outputs the UTG representation. Specifically, it leverages the MaskGAE with a 2-layer GCN  to embed
 UTG. 
 3. **UEware Detector.** Based on the UTG features, this module
 leverages the self-supervised representation learning to train a
 UEware classifier, which will be used to perform the detection.
+
 <div align="center">
 	<img src="./fig/overview.png" width="50%">
     <br>
@@ -93,10 +92,12 @@ List of the APPs used for evaluation
 |         |  Real-World        | 2021- 2022             | site.leos.setter         | 1            |1|
 |         |          |              | de.digisocken.antherrss         | 1            |1|
 |         |          |             | org.woheller69.weather          | 1            |1|
+|         |          |             |  net.gsantner.dandelior          | 1            |1|
+|         |          |             |  com.github.dfa.diaspora_android         | 1            |1|
 | Ground-truth Dataset        | UEware           | June, 2022             | Gambling Game        | 470           |1|
 |         |          |             | Porn          | 497            |1|
 |         |          |             | Financial          | 300           |1|
 |       | Legitimate Apps           | June, 2022             | --        | 831           |1|
 | Large-scale Dataset        | Wild           | June-July, 2022             | App form website        | 13,460          |1|
 |         | Appstore           | June-July, 2022             | App form Appstore        | 10,557          |1|
-| **Total**       | --                               | --        | --    | 26,597               | --|
+| **Total**       | --                               | --        | --    | 26,125               | --|
