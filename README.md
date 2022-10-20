@@ -74,12 +74,12 @@ UTG.
 leverages the self-supervised representation learning to train a
 UEware classifier, which will be used to perform the detection.
 <div align="center">
-	<img src="./fig/OverView.png" width="50%">
+	<img src="./fig/overView.png" width="50%">
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">UTG compare</div>
+    padding: 2px;">Overview</div>
 </div>
 
 ## Dataset
