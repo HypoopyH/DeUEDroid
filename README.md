@@ -1,16 +1,16 @@
-# DeUEDroid: An UEware Detection System Based on UTG
-Introduction and implementation of the paper DeUEDroid: An UEware Detection System Based on UTG.
+# DeUEDroid: An UEware Detection System Based on UTG Similarity
+Introduction and implementation of the paper DeUEDroid: An UEware Detection System Based on UTG Similarity.
 ## Introduction
-Nowadays, apps that serve the underground economy are prevalent nowadays.
-Unlike legitimate apps (e.g., pornhub in the US), these apps serve the underground economy by providing illegal sensitive services (e.g., gambling scam, prostitution, Ponzi scheme, usury).  We call them underground economy apps, or *UEware* for short. However, traditional malicious detection
-methods cannot effectively address this emerging threat.
+Nowadays, apps that serve the underground economy are prevalent in the wild.
+Unlike normal apps (e.g., pornhub in the US), these apps serve the underground economy by providing sensitive services (e.g., gambling scam, prostitution, Ponzi scheme, usury).  We call them underground economy apps, or *UEware* for short. However, traditional malicious detection
+approaches cannot effectively address this emerging threat.
 
-To address this problem, we propose a novel approach to effectively and efficiently detect UEware by considering their UI transition graphs (UTG). Based on the proposed approach, we design and implement a system, named DeUEDroid, to perform the detection. To evaluate DeUEDroid, we collect 26, 125 apps to evaluate DeUEDroid and build up the first large-scale ground-truth UEware dataset (1, 267 underground economy apps and 831 legitimate apps)
+To address this problem, we propose a novel approach to effectively and efficiently detect UEware by considering their UI transition graphs (UTG). Based on the proposed approach, we design and implement a system, named DeUEDroid, to perform the detection. To evaluate DeUEDroid, we collect 26, 125 apps to evaluate DeUEDroid and build up the first large-scale ground-truth UEware dataset (1, 267 underground economy apps and 831 normal apps).
 
 ## Motivation Example
-To perform an effective large-scale detection, we propose a UEware detection approach based on the UTG. Our approach is based on two key observations:
+To perform an effective large-scale detection, we propose an UEware detection approach based on the UTG similarity. Our approach is based on two key observations:
 1. Observation-I: the UTGs of UEware are different from those of
-the legitimate apps.
+the normal apps.
 2. Observation-II: the UTGs of the same type of UEware are simi-
 lar, while the UTGs of different types of UEware vary from each
 other.
@@ -27,7 +27,8 @@ app in Figure laon app. Additionally, we select some official loan apps for comp
 </div>
 
 
-To demonstrate the second observation, we randomly select another underground loan app (with different Manifest). Although their runtime screenshots are different, they share a similar UTG (e.g., home page, loan apply, bank card check). Then we picked a underground gambling app to compare. Different from loans, the gambling app provides many game windows and a recharge window instead of loan apply. The services of these two types of apps are completely different, resulting in their UTG differences.
+To demonstrate the second observation, we randomly select another underground loan app (with different Manifest). Although their runtime screenshots are different, they share a similar UTG (e.g., home page, loan apply, bank card check). Then we picked a underground gambling app to compare. Different from loans, the gambling app provides many game windows and a recharge window instead of loan apply. The services of these two types of apps are completely different, resulting in their UTG differences. 
+
 <div align="center">
 	<img src="./fig/loan_2.png" width="70%">
     <br>
@@ -50,7 +51,7 @@ To demonstrate the second observation, we randomly select another underground lo
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">UTG compare</div>
+    padding: 2px;">UTG comparision</div>
 </div>
 
 ## System OverView
@@ -94,10 +95,10 @@ List of the APPs used for evaluation
 |         |          |             | org.woheller69.weather          | 1            |1|
 |         |          |             |  net.gsantner.dandelior          | 1            |1|
 |         |          |             |  com.github.dfa.diaspora_android         | 1            |1|
-| Ground-truth Dataset        | UEware           | June, 2022             | Gambling Game        | 470           |1|
-|         |          |             | Porn          | 497            |1|
-|         |          |             | Financial          | 300           |1|
-|       | Legitimate Apps           | June, 2022             | --        | 831           |1|
+| Ground-truth Dataset        | UEware           | June, 2022             | Gambling Game        | 310           |1|
+|         |          |             | Porn          | 341            |1|
+|         |          |             | Financial          | 197           |1|
+|       | Normal Apps           | June, 2022             | --        | 852           |1|
 | Large-scale Dataset        | Wild           | June-July, 2022             | App form website        | 13,460          |1|
 |         | Appstore           | June-July, 2022             | App form Appstore        | 10,557          |1|
-| **Total**       | --                               | --        | --    | 26,125               | --|
+| **Total**       | --                               | --        | --    | 25,727               | --|
