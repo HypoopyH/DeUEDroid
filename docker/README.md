@@ -20,6 +20,7 @@ If there are some special needs, such as overtime modification, changing the sdk
 We synthesize the detection model trained on the ground-truth dataset (1700 apps). 
 
 ```bash
+source activate venv
 # preprocess the static analysis results
 # the result locate in /MaskGAE/raw/..
 python3 preprocess.py
